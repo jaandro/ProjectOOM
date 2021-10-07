@@ -17,34 +17,23 @@ public class Server extends Conexion {
 		super("server", port);
 	}	
 	
-	public void startServer()//Método para iniciar el servidor
+	public void startServer()
     {
-        try
-        {
-            System.out.println("Waiting..."); //Esperando conexión
-            cs = ss.accept(); //Accept comienza el socket y espera una conexión desde un cliente
-            System.out.println("Client online");
-
-            //Se obtiene el flujo de salida del cliente para enviarle mensajes
-            outClient = new DataOutputStream(cs.getOutputStream());
-
-            //Se le envía un mensaje al cliente usando su flujo de salida
-            outClient.writeUTF("Request accepted");
-
-            //Se obtiene el flujo entrante desde el cliente
+        try {
+            System.out.println("Waiting...");
+            cs = ss.accept(); 
+            System.out.println("Client online");            
+            outClient = new DataOutputStream(cs.getOutputStream());            
+            outClient.writeUTF("Request accepted");            
             BufferedReader entrada = new BufferedReader(new InputStreamReader(cs.getInputStream()));
-
-            while((messageServer = entrada.readLine()) != null) //Mientras haya mensajes desde el cliente
-            {
+            while((messageServer = entrada.readLine()) != null) {
                 System.out.println(messageServer);
             }
 
             System.out.println("Conexion ended.");
-
-            ss.close();//Se finaliza la conexión con el cliente
+            ss.close();
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
@@ -80,7 +69,6 @@ public class Server extends Conexion {
 	public void setRounds(int rounds) {
 		this.rounds = rounds;
 	}
-
 		
 }
 	

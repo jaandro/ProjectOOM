@@ -9,21 +9,14 @@ public class Client extends Conexion {
 		super("client", port);		
 	}
 
-	public void startClient() //Método para iniciar el cliente
+	public void startClient() 
     {
-        try {
-            //Flujo de datos hacia el servidor
-            outServer = new DataOutputStream(cs.getOutputStream());
-
-            //Se enviarán dos mensajes
-            for (int i = 0; i < 2; i++)
-            {
-                //Se escribe en el servidor usando su flujo de datos
-                outServer.writeUTF("Este es el mensaje número " + (i+1) + "\n");
+        try {            
+            outServer = new DataOutputStream(cs.getOutputStream());          
+            for (int i = 0; i < 2; i++) {                
+                outServer.writeUTF("Message: " + (i+1) + "\n");
             }
-
-            cs.close();//Fin de la conexión
-
+            cs.close();
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
