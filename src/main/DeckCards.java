@@ -2,7 +2,7 @@ package main;
 
 public class DeckCards {
 	public Card[] deckCards;
-	
+	public int count;
 	public DeckCards() {
 		deckCards = new Card[52];
 		int i = 0;
@@ -21,9 +21,17 @@ public class DeckCards {
 			deckCards[i] = deckCards[random];
 			deckCards[random] = x;
 		}
-
+		count = 0;
 	}
 	
+	public Card takeCard() {
+		if(count == 52) {
+			Shuffle();
+		}
+		Card card = deckCards[count];
+		count++;		
+		return card;
+	}
 }
 
 
