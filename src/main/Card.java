@@ -20,10 +20,10 @@ public class Card {
 	
 	public String getSuitString() {
 		switch(suit) {
-		case SWORDS: return "Swords";
-		case SPADES: return "Spades";
-		case HEARTS: return "Hearts";
-		case DIAMONDS: return "Diamonds";
+			case SWORDS: return "Swords";
+			case SPADES: return "Spades";
+			case HEARTS: return "Hearts";
+			case DIAMONDS: return "Diamonds";
 		}
 		return null;		
 	}

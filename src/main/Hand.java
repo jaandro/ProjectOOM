@@ -11,16 +11,24 @@ public class Hand {
 		if(card != null) {
 			hand.add(card);
 		}
-		score = 0;
-		getScore();
 	}
 	
-	public void getScore() {
+	public int getScore() {
+		boolean as = false;
 		for(int i = 0; i < hand.size(); i++) {
-			if
-			score = score + value;
-		}
-		
-		if(score > 21) {F}
+			if(score < 21) {
+				value = hand.get(i).getValue();
+				if(value > 10) {value = 10;}
+				else if(value == 1) {
+					as = true;
+				}
+				if(as == true && score + 11 <= 21) {
+					score = score + 11;
+				}
+				else {score = score + value;}
+			}			
+		}		
+		if(score > 21) {return -1;}
+		return score;
 	}
 }

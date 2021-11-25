@@ -3,6 +3,7 @@ package main;
 public class DeckCards {
 	public Card[] deckCards;
 	public int count;
+	
 	public DeckCards() {
 		deckCards = new Card[52];
 		int i = 0;
@@ -12,9 +13,10 @@ public class DeckCards {
 					i++;
 			}
 		}	
+		shuffle();
 	}
 	
-	public void Shuffle() {
+	public void shuffle() {
 		for (int i = 0; i < 51; i++) {
 			int random = (int)(Math.random()*(i+1));	
 			Card x = deckCards[i];
@@ -26,7 +28,7 @@ public class DeckCards {
 	
 	public Card takeCard() {
 		if(count == 52) {
-			Shuffle();
+			shuffle();
 		}
 		Card card = deckCards[count];
 		count++;		
