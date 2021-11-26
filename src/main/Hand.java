@@ -13,6 +13,12 @@ public class Hand {
 		}
 	}
 	
+	public Card getCard(int pos) {
+		if (pos >= 0 && pos < hand.size()) {return (Card)hand.get(pos);}
+		else
+			return null;
+	}
+	
 	public int getScore() {
 		boolean as = false;
 		for(int i = 0; i < hand.size(); i++) {

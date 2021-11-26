@@ -11,10 +11,17 @@ public class Client extends Conexion {
 
 	public void startClient() 
     {
+		DeckCards deckCards = new DeckCards();
+		deckCards.shuffle();
+		Hand handPlayer = new Hand();
+		cs = ss.accept(); 
+		handPlayer.addToHand(deckCards.takeCard());
+		handPlayer.addToHand(deckCards.takeCard());
         try {            
             outServer = new DataOutputStream(cs.getOutputStream());          
             for (int i = 0; i < 2; i++) {                
-                outServer.writeUTF("Message: " + (i+1) + "\n");
+                outServer.writeUTF(handPlayer.getCard(i).getValueString() + " of "+ handPlayer.getCard(i).getSuitString() + "\n");
+                System.out.print(handPlayer.getCard(i).getValueString() + " of "+ handPlayer.getCard(i).getSuitString() + "\n");
             }
             cs.close();
         }

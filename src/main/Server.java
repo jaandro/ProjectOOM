@@ -22,7 +22,7 @@ public class Server extends Conexion {
         try {
             System.out.println("Waiting...");
             cs = ss.accept(); 
-            System.out.println("Client online");            
+            System.out.println("Hand of Player: ");            
             outClient = new DataOutputStream(cs.getOutputStream());            
             outClient.writeUTF("Request accepted");            
             BufferedReader entrada = new BufferedReader(new InputStreamReader(cs.getInputStream()));
