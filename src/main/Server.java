@@ -24,13 +24,13 @@ public class Server extends Conexion {
             cs = ss.accept(); 
             System.out.println("Hand of Player: ");            
             outClient = new DataOutputStream(cs.getOutputStream());            
-            outClient.writeUTF("Request accepted");            
-            BufferedReader entrada = new BufferedReader(new InputStreamReader(cs.getInputStream()));
-            while((messageServer = entrada.readLine()) != null) {
+            outClient.writeUTF("Game accepted");            
+            BufferedReader entry = new BufferedReader(new InputStreamReader(cs.getInputStream()));
+            while((messageServer = entry.readLine()) != null) {
                 System.out.println(messageServer);
             }
 
-            System.out.println("Conexion ended.");
+            System.out.println("Game ended.");
             ss.close();
         }
         catch (Exception e) {
