@@ -21,8 +21,9 @@ public class Hand {
 	
 	public int getScore() {
 		boolean as = false;
+		score = 0;
 		for(int i = 0; i < hand.size(); i++) {
-			if(score < 21) {
+			//if(score < 21) {
 				value = hand.get(i).getValue();
 				if(value > 10) {value = 10;}
 				else if(value == 1) {
@@ -32,9 +33,9 @@ public class Hand {
 					score = score + 11;
 				}
 				else {score = score + value;}
-			}			
-		}		
-		if(score > 21) {return -1;}
+			}	
+		//}		
+		//if(score > 21) {return -1;}
 		return score;
 	}
 }
