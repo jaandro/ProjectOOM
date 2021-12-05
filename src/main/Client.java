@@ -39,6 +39,7 @@ public class Client extends Conexion {
                 numCardsPlayer++;
             }
             System.out.print("\n");
+            outServer.writeUTF("\n");
             outServer.writeUTF("Dealer Cards: " + "\n");
             System.out.print("Dealer Cards: " + "\n");
             while (numCardsDealer < 2) {            	
@@ -103,6 +104,10 @@ public class Client extends Conexion {
             		 if(handDealer.getScore() < handPlayer.getScore() || handDealer.getScore() > 21) {
             			 System.out.print("Player WINS!");
             			 outServer.writeUTF("Player WINS!");
+            		 }
+            		 else if(handDealer.getScore() == handPlayer.getScore()) {
+            			 System.out.print("DRAW!");
+            			 outServer.writeUTF("DRAW!");
             		 }
             		 else {
             			 System.out.print("Player LOSES!");
